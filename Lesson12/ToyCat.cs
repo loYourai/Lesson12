@@ -1,9 +1,4 @@
-﻿void MakeNoise(Animal animal)
-{
-    // ...
-    animal.SaySmth();
-}
-
+﻿
 //var dog = new Dog("Jack", "white", 15);
 ////var cat = new Cat("Sally", "black", 10);
 
@@ -30,30 +25,30 @@
 
 //Console.WriteLine(cat.ToString());
 
-var toyCat = new ToyCat("Sally", "black", 10, false);
-var cat = new Cat("Sally", "black", 10, false);
-var animal = new Animal("Sally", "black", 10);
 
-Cat cat1 = toyCat;
-cat1.ToString();
 
-Animal animal1 = cat;
-Animal animal2 = toyCat;
 
-toyCat.SaySmth();
-cat.SaySmth();
-animal.SaySmth();
 
-cat1.SaySmth();
-animal1.SaySmth();
-animal2.SaySmth();
 
-((ToyCat)animal2).SaySmth();
 
-if (animal1 is ToyCat anotherToy)
+
+
+public class ToyCat : Cat
 {
-    anotherToy.SaySmth();
+    public ToyCat(string name, string color, decimal weight, bool isLazy) : base(name, color, weight, isLazy)
+    {
+        IsLazy = false;
+    }
+
+    public new void SaySmth()
+    {
+        Console.WriteLine("Toy cat!");
+    }
+
+    //public override string ToString()
+    //{
+    //    var isLazy = IsLazy ? "lazy" : "not lazy";
+
+    //    return $"I'm a toy cat! My name is {Name}";
+    //}
 }
-
-
-Console.ReadLine();
